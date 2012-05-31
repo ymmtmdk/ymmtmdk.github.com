@@ -7,19 +7,19 @@
 <script type="text/javascript" src="jquery.qrcode.js"></script>
 <script type="text/javascript" src="qrcode.js"></script>
 
-<p>Render in table</p>
+<input id="qrsource" type="text" size=100><br><br>
 <div id="qrcodeTable"></div>
-<p>Render in canvas</p>
-<div id="qrcodeCanvas"></div>
+
 <script>
-	//jQuery('#qrcode').qrcode("this plugin is great");
-	jQuery('#qrcodeTable').qrcode({
-		render	: "table",
-		text	: "http://jetienne.com"
-	});	
-	jQuery('#qrcodeCanvas').qrcode({
-		text	: "http://jetienne.com"
-	});	
+  $(document).ready(function(){
+    $(window).keyup(function(e){
+      jQuery('#qrcodeTable').text("");
+      jQuery('#qrcodeTable').qrcode({
+        render	: "table",
+        text	: jQuery('#qrsource').val()
+      });	
+    });
+  });
 </script>
 
 </body>
