@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>JavaScript <=> ActionScript</title>
+<meta http-equiv="cache-control" content="no-cache" />
+</head>
+
+<body>
+<script language="JavaScript" type="text/javascript">
+function as2js() {
+    date = new Date();
+    dateTime  = date.getFullYear();
+    dateTime += "-" + (date.getMonth() + 1);
+    dateTime += "-" + date.getDate();
+    dateTime += " " + date.getHours();
+    dateTime += ":" + date.getMinutes();
+    dateTime += ":" + date.getSeconds();
+    divCall = document.getElementById("call");
+    divCall.innerHTML = "ActionScript => JavaScript:" + dateTime;
+}
+function call() {
+    if (navigator.appName.indexOf("Microsoft") != -1) {
+        window["jsandas"].js2as();
+    }
+    else {
+        document["jsandas"].js2as();
+    }
+}
+function showDialog(message) {
+  alert("JavaScript: " + message);
+}
+
+</script>
+<div style="margin:3px;">
+<input type="button" value="js2as" onclick="call()">
+<div id="call" style="margin-top:5px;font-size:11px;">&nbsp;</div>
+</div>
+<br />
+
+<object classid="clsid:D27CDB6E- AE6D-11cf-96B8-444553540000"
+        codebase="http:// download.macromedia.com/pub/shockwave/cabs/flash/ swflash.cab#version=6,0,29,0"
+        id="jsandas" width="800" height="600">
+  <param name="movie" value="hw.swf" />
+  <param name="quality" value="high" />
+  <param name="bgcolor" value="#ffffff" />
+  <param name="wmode" value="transparent" />
+  <embed src="hw.swf" quality="high"
+         pluginspage="http://www.macromedia.com/go/getflashplayer"
+         type="application/x-shockwave-flash" wmode="transparent"
+         width="800" height="600" name="jsandas"></embed>
+</object>
+</body>
+</html>
